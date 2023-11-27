@@ -62,7 +62,7 @@ const Modal = ({productId}: Props) => {
                       <div className=" flex justify-between">
                         <div className=" p-3 border border-gray-200 rounded-10">
                           <Image 
-                            src="/public/assets/icons/logo.svg"
+                            src="/assets/icons/logo.svg"
                             alt="logo"
                             width={28}
                             height={28}
@@ -70,7 +70,7 @@ const Modal = ({productId}: Props) => {
                         </div>
 
                         <Image 
-                          src="/public/assets/icons/x-close.svg"
+                          src="/assets/icons/x-close.svg"
                           alt="close"
                           width={24}
                           height={24}
@@ -93,7 +93,7 @@ const Modal = ({productId}: Props) => {
                       </label>
                       <div className="dialog-input_container">
                         <Image 
-                          src="/public/assets/icons/mail.svg"
+                          src="/assets/icons/mail.svg"
                           alt="mail"
                           width={18}
                           height={18}

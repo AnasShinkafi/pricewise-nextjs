@@ -15,7 +15,7 @@ const Home = async () => {
           <div className=" flex flex-col justify-center">
             <p className="small-text">
               Smart Shopping Starts Her:
-              <Image src="/public/assets/icons/arrow-right.svg"  alt='arrow right' width={16} height={16} />
+              <Image src="/assets/icons/arrow-right.svg"  alt='arrow right' width={16} height={16} />
             </p>
 
             <h1 className="head-text">
