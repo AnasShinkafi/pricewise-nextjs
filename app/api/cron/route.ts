@@ -5,7 +5,7 @@ import { scrapedAmazonProduct } from "@/lib/scraper";
 import { getAveragePrice, getEmailNotifType, getHighestPrice, getLowestPrice } from "@/lib/utils";
 import { NextResponse } from "next/server";
 
-export const maxDuration = 10;
+export const maxDuration = 300;
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
@@ -35,7 +35,7 @@ export async function GET() {
                     lowestPrice: getLowestPrice(updatePriceHistory),
                     highestPrice: getHighestPrice(updatePriceHistory),
                     averagePrice: getAveragePrice(updatePriceHistory),
-                }
+                };
 
                 const updatedProduct = await Product.findOneAndUpdate(
                     { url: product.url },
@@ -48,22 +48,22 @@ export async function GET() {
                     const productInfo = {
                         title: updatedProduct.title,
                         url: updatedProduct.url,
-                    }
+                    };
 
                     const emailContent = await generateEmailBody(productInfo, emailNotifType);
 
                     const userEmails = updatedProduct.users.map((user: any) => user.email);
 
-                    await sendEmail(emailContent, userEmails)
-                }
+                    await sendEmail(emailContent, userEmails);
+                };
 
                 return updatedProduct;
-            })
-        )
+            }),
+        );
         return NextResponse.json({
             message: "OK", data: updatedProducts
-        })
+        });
     } catch (error) {
         throw new Error(`Error in GET: ${error}`);
-    }
-}
+    };
+};
